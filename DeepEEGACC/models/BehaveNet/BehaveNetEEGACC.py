@@ -1,10 +1,10 @@
-import sys
+# import sys
 from keras.layers.normalization import BatchNormalization
 from keras.layers.pooling import MaxPooling1D, AveragePooling1D
 from sklearn.ensemble.forest import RandomForestClassifier
 from pandas.core.frame import DataFrame
 from seaborn.matrix import heatmap
-sys.path.insert(0, "/home/cirl/Amir/Human-Activity-EEG-Accelerometer")
+# sys.path.insert(0, "/home/cirl/Amir/Human-Activity-EEG-Accelerometer")
 import numpy as np
 import os
 import matplotlib.pyplot as plt
@@ -116,6 +116,7 @@ if __name__ == '__main__':
     csv_logger = CSVLogger('res/training.csv', append=True, separator=',')
     history_callback = model.fit(X_train, y_train, epochs=epochs, batch_size=500,
         validation_split=0.2, verbose=1, callbacks=[csv_logger, early_stop])
+    model.save_weights("model.h5")
     pred = model.predict(X_test)
     compute_accuracy(name, pred, test_labels, history_callback)
     evalRes(pred, test_labels, y_test, name)

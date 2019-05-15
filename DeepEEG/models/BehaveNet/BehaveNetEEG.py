@@ -48,7 +48,7 @@ tf.set_random_seed(1234)
 def build_model(X_train, row, cell):
     model = Sequential()
     model.add(Conv1D(32, 4, strides=1, data_format='channels_last',
-             input_shape=(300, 2)))
+             input_shape=(330, 2)))
     model.add(Activation("relu"))
     model.add(BatchNormalization())
     model.add(Conv1D(64, 8, strides=4, data_format='channels_last'))
@@ -88,7 +88,7 @@ def build_model(X_train, row, cell):
 
 
 if __name__ == '__main__':
-    X_train, y_train, X_test, y_test, train_labels, test_labels = build_inputs(False, 1)
+    X_train, y_train, X_test, y_test, train_labels, test_labels = build_inputs(False, 330)
     epochs = 50  # 21
     model = build_model(X_train, 0, 0)
     name = "{}-{}".format(0, 0)
