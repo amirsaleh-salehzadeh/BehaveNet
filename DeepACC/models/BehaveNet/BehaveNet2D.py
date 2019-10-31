@@ -5,7 +5,7 @@ from keras.layers.pooling import MaxPooling1D, AveragePooling1D, \
 from keras.constraints import max_norm
 from keras.engine.training import Model
 from keras.engine.input_layer import Input
-sys.path.insert(0, "/home/cirl/Amir/Human-Activity-EEG-Accelerometer")
+# sys.path.insert(0, "/home/cirl/Amir/Human-Activity-EEG-Accelerometer")
 import numpy as np
 import os
 from keras.models import Sequential
