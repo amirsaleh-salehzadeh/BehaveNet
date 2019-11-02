@@ -20,3 +20,5 @@ class Camera:
 
         cap.release()
         cv2.destroyAllWindows()
+
+Camera.start_capturing('rtsp://admin:0415042490@@10.250.224.27/1')

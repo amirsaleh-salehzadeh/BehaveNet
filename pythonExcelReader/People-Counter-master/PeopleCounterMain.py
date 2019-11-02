@@ -36,12 +36,14 @@ if __name__ == "__main__":
 #  
 #  
 #     camera = cv2.VideoCapture(play.url)
-    url = 'https://www.youtube.com/watch?v=tihJ58_qiH0'
-    video = pafy.new(url)
-    best = video.getbest(preftype="mp4")
+#     url = 'https://www.youtube.com/watch?v=tihJ58_qiH0'
+#     video = pafy.new(url)
+#     best = video.getbest(preftype="mp4")
       
-    camera = cv2.VideoCapture()
-    camera.open(best.url)
+#     camera = cv2.VideoCapture()
+#     camera = cv2.VideoCapture('rtsp://admin:0415042490@10.250.224.27/0')
+
+    camera = cv2.VideoCapture('1.mp4')
     firstFrame = None
 
     # loop over the frames of the video
