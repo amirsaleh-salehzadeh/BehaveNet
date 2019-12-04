@@ -49,12 +49,13 @@ def get_data(fp, labels, folders):
 #             dump = pickle.load(f)
 #             return dump[0], dump[1], dump[2]
     file_dir = folders[fp]
-    datasignals = pd.read_excel(io=fp, skiprows=4)
-    datasignals = datasignals.iloc[:,1:4]
+    datasignals = pd.read_csv(filepath_or_buffer=fp, sep=',', 
+                              dtype='float', names=["EEG1", "EEG2", "Acc_X", "Acc_Y", "Acc_Z"])
+    datasignals = datasignals[["Acc_X", "Acc_Y", "Acc_Z"]]
     datasignals = datasignals.drop_duplicates()
     datasignals = (datasignals - datasignals.mean()) / datasignals.std(ddof=0)
     datasignals = norm_data(datasignals)
-    one_hot = np.zeros(4)
+    one_hot = np.zeros(3)
     label = labels[file_dir]
     one_hot[label] = 1
 #     with open(fp + "filtered.file", "wb") as f:
